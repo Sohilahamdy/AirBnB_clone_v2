@@ -1,14 +1,10 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 
 class State(BaseModel, Base):
-    """State class to represent a state in the AirBnB system."""
-
+    """State class for storing states."""
+    
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)
-    cities = relationship('City', back_populates='state', cascade='all, delete-orphan')
-
-    def __init__(self, *args, **kwargs):
-        """Initialize a new State instance."""
-        super().__init__(*args, **kwargs)
+    cities = relationship("City", backref="state", cascade="all, delete-orphan")
