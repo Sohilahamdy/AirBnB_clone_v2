@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Adjust the path to the directory containing your 'models' directory
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'web_flask')))
+
 from models import storage
 from models.state import State
 from models.city import City
