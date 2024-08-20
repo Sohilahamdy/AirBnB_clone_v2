@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module documentation"""
+"""Module for Flask routes"""
 
 from flask import Flask
 app = Flask(__name__)
@@ -20,6 +20,10 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
     """Displays 'C ' followed by the value of text,
-       replacing underscores with spaces"""
+    replacing underscores with spaces"""
     text = text.replace('_', ' ')
     return f"C {text}"
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
