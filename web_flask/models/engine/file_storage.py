@@ -36,7 +36,8 @@ class FileStorage:
                 objects_dict = json.load(file)
                 for key, obj_dict in objects_dict.items():
                     cls_name = obj_dict['__class__']
-                    cls = globals()[cls_name]
-                    self.__objects[key] = cls(**obj_dict)
+                    cls = globals().git[cls_name]
+                    if cls:
+                        self.__objects[key] = cls(**obj_dict)
         except FileNotFoundError:
             pass
