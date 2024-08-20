@@ -23,7 +23,7 @@ def c_route(text):
     """Displays 'C ' followed by the value of text,
     replacing underscores with spaces"""
     text = text.replace('_', ' ')
-    return f"C {text}"
+    return "C {}".format(text)
 
 
 @app.route('/python/', strict_slashes=False)
@@ -32,13 +32,13 @@ def python_route(text="is cool"):
     """Displays 'Python ' followed by the value of text,
     replacing underscores with spaces"""
     text = text.replace('_', ' ')
-    return f"Python {text}"
+    return "Python {}".format(text)
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number_route(n):
     """Displays 'n is a number' only if n is an integer"""
-    return f"{n} is a number"
+    return "{} is a number".format(n)
 
 
 if __name__ == "__main__":
